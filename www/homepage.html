@@ -14,6 +14,15 @@
     <button onclick="loadMyPosts()">My Posts</button>
     <button onclick="location = 'create.html'">New Report</button>
 
+    <select onchange="filterCategory(this.value)">
+      <option value="">All Categories</option>
+      <option value="Accident">Accident</option>
+      <option value="Fighting">Fighting</option>
+      <option value="Rioting">Rioting</option>
+      <option value="Theft">Theft</option>
+      <option value="Fire">Fire</option>
+    </select>
+
     <div id="posts"></div>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>

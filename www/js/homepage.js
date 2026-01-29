@@ -11,39 +11,85 @@ function loadPosts() {
     .orderBy("date", "desc")
     .onSnapshot((snapshot) => {
       let html = "";
+
       snapshot.forEach((doc) => {
         let d = doc.data();
+
         html += `
         <div class="card">
           <h3>${d.title}</h3>
+
+          <b>Category:</b> ${d.category}<br>
+
           <p>${d.description}</p>
+
           <small>By ${d.author}</small><br>
-          <small>${new Date(d.date).toDateString()}</small>
+          <small>${new Date(d.date).toDateString()}</small><br>
+
+          <small>
+            Location: ${d.lat}, ${d.lng}
+          </small>
         </div>
       `;
       });
+
       document.getElementById("posts").innerHTML = html;
     });
 }
 
 function loadMyPosts() {
   let uid = auth.currentUser.uid;
+
   db.collection("incidents")
     .where("uid", "==", uid)
     .get()
     .then((snapshot) => {
       let html = "";
+
       snapshot.forEach((doc) => {
         let d = doc.data();
-        html += `<div class="card">
-      <h3>${d.title}</h3>
-      <p>${d.description}</p>
-      </div>`;
+
+        html += `
+        <div class="card">
+          <h3>${d.title}</h3>
+          <b>Category:</b> ${d.category}<br>
+          <p>${d.description}</p>
+        </div>
+      `;
       });
+
       document.getElementById("posts").innerHTML = html;
     });
 }
 
 function logout() {
   auth.signOut();
+}
+
+function filterCategory(cat) {
+  if (cat == "") {
+    loadPosts();
+    return;
+  }
+
+  db.collection("incidents")
+    .where("category", "==", cat)
+    .get()
+    .then((snapshot) => {
+      let html = "";
+
+      snapshot.forEach((doc) => {
+        let d = doc.data();
+
+        html += `
+        <div class="card">
+          <h3>${d.title}</h3>
+          <b>Category:</b> ${d.category}<br>
+          <p>${d.description}</p>
+        </div>
+      `;
+      });
+
+      document.getElementById("posts").innerHTML = html;
+    });
 }

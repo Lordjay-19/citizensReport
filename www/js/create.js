@@ -40,7 +40,13 @@ function getLocation() {
 function submitIncident() {
   let title = document.getElementById("title").value;
   let desc = document.getElementById("desc").value;
+  let category = document.getElementById("category").value;
   let user = auth.currentUser;
+
+  if (title == "" || desc == "" || category == "") {
+    alert("All fields required");
+    return;
+  }
 
   db.collection("users")
     .doc(user.uid)
@@ -49,6 +55,7 @@ function submitIncident() {
       return db.collection("incidents").add({
         title: title,
         description: desc,
+        category: category,
         image: imageData,
         lat: latitude,
         lng: longitude,

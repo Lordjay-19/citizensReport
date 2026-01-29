@@ -9,15 +9,15 @@
   </head>
   <body>
     <div id="loader" class="loader hidden"></div>
+    <div class="login-container">
+      <h2>Login</h2>
 
-    <h2>Login</h2>
+      <input type="email" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Password" />
 
-    <input type="email" id="email" placeholder="Email" />
-    <input type="password" id="password" placeholder="Password" />
-
-    <button onclick="login()">Login</button>
-    <p><a href="signup.html">Create Account</a></p>
-
+      <button onclick="login()">Login</button>
+      <p><a href="signup.html">Create Account</a></p>
+    </div>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>

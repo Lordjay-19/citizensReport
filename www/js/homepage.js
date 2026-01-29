@@ -25,17 +25,23 @@ function loadPosts() {
 
       snapshot.forEach((doc) => {
         let d = doc.data();
-
         html += `
-        <div class="card">
-          <h3>${d.title}</h3>
-          <b>Category:</b> ${d.category}<br>
-          <p>${d.description}</p>
-          <small>By ${d.author}</small><br>
-          <small>${new Date(d.date).toDateString()}</small><br>
-          <small>Location: ${d.lat}, ${d.lng}</small>
-        </div>
-      `;
+          <div class="card">
+
+            <h3>${d.title}</h3>
+
+            <b>Category:</b> ${d.category}<br>
+
+            ${d.image ? `<img src="${d.image}">` : ``}
+
+            <p>${d.description}</p>
+
+            <small>By ${d.author}</small><br>
+            <small>${new Date(d.date).toDateString()}</small><br>
+            <small>Location: ${d.lat}, ${d.lng}</small>
+
+          </div>
+        `;
       });
 
       document.getElementById("posts").innerHTML = html;
@@ -54,14 +60,14 @@ function loadMyPosts() {
 
       snapshot.forEach((doc) => {
         let d = doc.data();
-
         html += `
-        <div class="card">
-          <h3>${d.title}</h3>
-          <b>Category:</b> ${d.category}<br>
-          <p>${d.description}</p>
-        </div>
-      `;
+            <div class="card">
+              <h3>${d.title}</h3>
+              <b>Category:</b> ${d.category}<br>
+              ${d.image ? `<img src="${d.image}">` : ``}
+              <p>${d.description}</p>
+            </div>
+        `;
       });
 
       document.getElementById("posts").innerHTML = html;

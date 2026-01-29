@@ -2,25 +2,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Incident</title>
     <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
-    <h2>Login</h2>
+    <h2>New Incident</h2>
 
-    <input type="email" id="email" placeholder="Email" />
-    <input type="password" id="password" placeholder="Password" />
+    <input id="title" placeholder="Title" />
+    <textarea id="desc" placeholder="Description"></textarea>
 
-    <button onclick="login()">Login</button>
-    <p><a href="signup.html">Create Account</a></p>
+    <button onclick="takePhoto()">Take Picture</button>
+    <img id="preview" width="200" />
+
+    <button onclick="getLocation()">Get Location</button>
+
+    <button onclick="submitIncident()">Submit</button>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
     <script src="js/firebase.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/create.js"></script>
   </body>
 </html>

@@ -2,25 +2,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
     <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
-    <h2>Login</h2>
+    <h2>Signup</h2>
 
-    <input type="email" id="email" placeholder="Email" />
-    <input type="password" id="password" placeholder="Password" />
+    <input id="name" placeholder="Full Name" />
+    <input id="email" placeholder="Email" />
+    <input id="password" type="password" placeholder="Password" />
 
-    <button onclick="login()">Login</button>
-    <p><a href="signup.html">Create Account</a></p>
+    <button onclick="signup()">Create Account</button>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
     <script src="js/firebase.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/signup.js"></script>
   </body>
 </html>

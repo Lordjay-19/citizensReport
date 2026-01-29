@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "624930538936",
+    "project_id": "citizensreport-1905",
+    "storage_bucket": "citizensreport-1905.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624930538936:android:f193c3bed3ebd69556bb4d",
+        "android_client_info": {
+          "package_name": "org.apache.cordova.hellocordova"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtqlZv7bLCFxjvHfgNSYYGeYEeewUKSlQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

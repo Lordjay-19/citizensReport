@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
-    <h2>Incidents</h2>
+    <div id="loader" class="loader hidden"></div>
 
-    <button onclick="logout()">Logout</button>
-    <button onclick="loadMyPosts()">My Posts</button>
-    <button onclick="location = 'create.html'">New Report</button>
+    <h2>Incidents</h2>
+<div class="top-actions"></div>
+      <button onclick="logout()">Logout</button>
+      <button onclick="loadMyPosts()">My Posts</button>
+      <button onclick="location = 'create.html'">New Report</button>
+    </div>
 
     <select onchange="filterCategory(this.value)">
       <option value="">All Categories</option>

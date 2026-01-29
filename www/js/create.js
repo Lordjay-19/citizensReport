@@ -1,3 +1,11 @@
+function showLoader() {
+  document.getElementById("loader").classList.remove("hidden");
+}
+
+function hideLoader() {
+  document.getElementById("loader").classList.add("hidden");
+}
+
 let imageData = "";
 let latitude = "";
 let longitude = "";
@@ -38,6 +46,8 @@ function getLocation() {
 }
 
 function submitIncident() {
+  showLoader();
+
   let title = document.getElementById("title").value;
   let desc = document.getElementById("desc").value;
   let category = document.getElementById("category").value;
@@ -66,6 +76,7 @@ function submitIncident() {
     })
     .then(() => {
       alert("Incident Submitted");
+      hideLoader();
       window.location = "homepage.html";
     });
 }

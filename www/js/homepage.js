@@ -1,3 +1,11 @@
+function showLoader() {
+  document.getElementById("loader").classList.remove("hidden");
+}
+
+function hideLoader() {
+  document.getElementById("loader").classList.add("hidden");
+}
+
 auth.onAuthStateChanged((user) => {
   if (!user) {
     window.location = "index.html";
@@ -7,9 +15,12 @@ auth.onAuthStateChanged((user) => {
 });
 
 function loadPosts() {
+  showLoader();
+
   db.collection("incidents")
     .orderBy("date", "desc")
-    .onSnapshot((snapshot) => {
+    .get()
+    .then((snapshot) => {
       let html = "";
 
       snapshot.forEach((doc) => {
@@ -18,22 +29,17 @@ function loadPosts() {
         html += `
         <div class="card">
           <h3>${d.title}</h3>
-
           <b>Category:</b> ${d.category}<br>
-
           <p>${d.description}</p>
-
           <small>By ${d.author}</small><br>
           <small>${new Date(d.date).toDateString()}</small><br>
-
-          <small>
-            Location: ${d.lat}, ${d.lng}
-          </small>
+          <small>Location: ${d.lat}, ${d.lng}</small>
         </div>
       `;
       });
 
       document.getElementById("posts").innerHTML = html;
+      hideLoader();
     });
 }
 

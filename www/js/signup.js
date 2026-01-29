@@ -1,4 +1,14 @@
+function showLoader() {
+  document.getElementById("loader").classList.remove("hidden");
+}
+
+function hideLoader() {
+  document.getElementById("loader").classList.add("hidden");
+}
+
 function signup() {
+  showLoader();
+
   let name = document.getElementById("name").value;
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
@@ -12,10 +22,12 @@ function signup() {
       });
     })
     .then(() => {
-      alert("Account created!");
+      hideLoader();
+      alert("Account created");
       window.location = "index.html";
     })
     .catch((err) => {
+      hideLoader();
       alert(err.message);
     });
 }

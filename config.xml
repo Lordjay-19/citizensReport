@@ -7,15 +7,18 @@
     <author email="bakrejafar126@gmail.com" href="https://bakrejaafar.vercel.app/">
         Bakre Jaafar
     </author>
-    <content src="index.html" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
+    <content src="index.html" /><preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="23" />
+    <preference name="BackupWebStorage" value="none" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <allow-navigation href="*" />
+    <access origin="*" /><preference name="DisallowOverscroll" value="true" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <allow-navigation href="*" />
+    <access origin="*" />
 </widget>
-<access origin="*" />
-<allow-navigation href="*" />
-<platform name="android">
-    <allow-intent href="market:*" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
-</platform>
 
